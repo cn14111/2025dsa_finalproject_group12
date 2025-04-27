@@ -1,0 +1,16 @@
+Version: 1.0
+ProjectId: 8fbf4476-18c3-4618-9ca2-9a4500ac2e7e
+
+RestoreWorkspace: Default
+SaveWorkspace: Default
+AlwaysSaveHistory: Default
+
+EnableCodeIndexing: Yes
+UseSpacesForTab: Yes
+NumSpacesForTab: 2
+Encoding: UTF-8
+
+RnwWeave: Sweave
+LaTeX: pdfLaTeX
+
+ProjectName: 2025dsa_finalproject_group12

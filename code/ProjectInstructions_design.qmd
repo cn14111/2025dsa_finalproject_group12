@@ -1,0 +1,823 @@
+---
+title: "Data Science Applied to Ag - Final Project - Design"
+author: "Charishma Nadavala"
+format:
+  html:
+    code-fold: false
+    embed-resources: true
+    toc: true
+    number-sections: true
+    theme: cerulean
+---
+
+# Instructions  
+This file contains both the **instructions** for the mid-term project and placeholders for your code. You are required to use this file to produce code, output, and answers to the questions below.  
+
+Besides simply creating output, make sure to interpret the output. You will need to create tables and/or plots to arrive at the answers, and then comment on what you found below it.    
+
+To get you setup, you will need to:  
+
+  - Student #1: create a repository on your GitHub account. You can call this repository "2025dsa_finalproject_groupX", **where X is the number of your group**. Make it public, add a README, add a .gitignore for R.  
+  - Student #1: follow the steps we did in class to start a new RStudio project with version control.  
+  - Student #1: in your computer, create the sub-folders code, data, output, and move your data set into the `data` folder. Also, student 1 moves this current script into the `code` folder. Do a git stage, commit, push.  
+  - Student #1: on GitHub, go the repository settings and invite your partner to be a collaborator in the repository. That will give them push permission.  
+  - Now, both students should clone this repository on their computers like we did in class. Make sure this step works well and that you can pull and push from GitHub.  
+  - Student 2, after cloning, does a git pull to get all these updates on their computer.  
+  - Student 1 and 2 work together to update the README file. README files should explain what the repository is about, the goals of that project, who is working in it, and any other important details you may find.  
+  
+# Introduction  
+Describe here the introduction of your problem. Consider this as a shortened version of your paper, where you will briefly discuss in 3-4 paragraphs what is the issue/gap in literature, and how the data you collected will help answer this gap.  
+
+The energy transition from fossil fuels to renewable sources represents one of the most critical challenges facing countries worldwide, not only on due to technological and economic factors but
+also on because of social acceptance and public preferences for various energy sources. Understanding the impact of socio-economic features and demographic factors on individuals energy preferences provides critical insights for developing effective, targeted energy policies.
+
+The study conducts an analysis of public preferences for different energy sources applying the data from 1,962 respondents participating in an online survey in the UAE. The UAE has been a major destination for job-seeking immigrants(expatriates/non-nationals) and is one of the top countries in terms of the share of immigrants in the country's total population, with a migrant share of 88.5% (Ratha et al., 2016). The total population is about 10.5 million in the UAE.The expatriates live for a varying length of time in the country and seldom obtain a citizenship.
+
+The study focuses exclusively on how socioeconomic and demographic factors influence preferences for six energy sources (nuclear, wind, solar, oil, gas, and coal energy), with particular emphasis on creating socio-demographic profiles that explain energy preferences patterns. In addition to the standard survey questions about socioeconomic characteristics, the questionnaire also probed respondents' knowledge, values, attitudes, concern, and behavior regarding energy and environmental issues associated with the non-renewable energy source utilization. A set of explanatory variables were identified at the research design stage that correlate with preferences for a specific energy source.
+
+
+
+# Hypothesis and objectives  
+Describe here your hypothesis, followed by your objectives. Make sure your hypothesis are testable and bold, and objectives are clear.  
+
+The objective of the study is to answer the following question:
+
+What can be said about the preferences for different energy sources among UAE residents? What is the association between socioeconomic and demographic factors and preferences for different energy sources (nuclear, wind, solar, oil, gas, and coal) among citizens and non-
+citizen residents of the UAE?
+
+
+
+
+# Material and Methods  
+Describe here your overall material and methods as it pertains to the analysis you will conduct, including study description, site/setup description, what equipment was used, etc. just like you would in a paper. Make sure to clearly explain what was measured and how.
+
+This study employs a questionnaire-based survey as the data collection technique, gathered data from 1961 respondents residing in the UAE between June and July 2015 using a market research company(YouGov), which hires panel members and receives surveys (Contu, D., Mourato, S., & Kaya, O. (2020). The data includes information on socio-economic characteristics and attitudes, including views on different energy sources, perceived risks and benefits of nuclear energy, choice experiments focusing on nuclear energy, life satisfaction, climate change attitudes, utility bills, and length of stay. The survey was developed using Gryphon, a survey programming tool used by YouGov, and designed in English or Arabic so that respondents may complete the survey based on their preferences (Contu, D., Mourato, S., & Kaya, O. (2020). The main goal of the survey is to think carefully about energy and climate change issues. 
+
+Methodology:
+
+Binary logistic regression models were employed to analyze the relationship between socio-demographic characteristics and preferences for various energy sources in the UAE.  Each model has a binary preference for an energy source as its dependent variable, namely nuclear, solar, wind, fossil fuel, oil, and gas. 
+
+P(y = 1|x) = G(β₀ + β₁x₁ + ... + βₖxₖ) = G(β₀ + xβ)   or log(p/(1-p)) = β₀ + β₁X₁ + β₂X₂ + ... + βₙXₙ + ε
+
+Where G is the logistic function
+
+G(z) = exp(z)/[1 + exp(z)]
+
+logit[P(Nuclear = 1)] = β₀ + β₁Age + β₂Male + β₃University first degree + β₄University higher degree + β₅Low Income + β₆Middle Income + β₇Dubai + β₈Abu Dhabi + β₉Sharjah + β₁₀UAE National + β₁₁Indian + β₁₂Pakistani +  β₁3 Full-time + β₁4Single + β₁5 Married with kids + β₁6Muslim+ β₁7Christian + β₁8Moderate Health + β₁9Good Health + β20Long-term resident +β21Indian x part-time + β22Pakistani x part-time + β23Pays Electricity bill + β24Pays Gas bill + ε
+
+To determine how employment level influences energy preferences differently for Indian and Pakistani respondents compared to other nationalities, I included an interaction term in the logistic regression model. Logit coefficients cannot be directly interpreted like in linear models, only indicating the direction of the effect. I calculated the AME
+
+Average marginal effects (AMEs) were calculated to know the probability in percentage point terms, which gives a more intuitive interpretation than the original logistic coefficients. This will allow for a direct comparison of effects across different demographic groups and energy sources.
+
+∂P(y = 1|x)/∂xⱼ = g(β₀ + xβ)βⱼ
+
+Where g(z) = dG/dz = exp(z)/[1 + exp(z)]²
+
+n⁻¹∑ᵢ₌₁ⁿ g(β₀ + xᵢβ)βⱼ gives the average effect on probability across all observations in the sample.
+
+The model fit was evaluated using the Akaike Information Criterion (AIC) and Bayesian Information Criterion (BIC). And prediction accuracy metrics facilitate the comparison of model performance across different energy sources.
+
+To achieve the goal of developing demographic profiles for energy preference patterns, a cluster analysis was used alongside binary logistic regression models. Logistic regression determines the impact of individual demographic characteristics on preferences for certain energy sources, whereas cluster analysis reveals distinct preference patterns across all energy sources simultaneously.
+
+
+For the clustering analysis, energy preference variables like nuclear, wind, solar, gas, oil, and coal were first normalized using z-scores. Thereafter, the silhouette statistical method was used to determine the optimal number of clusters. K-means algorithm with k=4 clusters was chosen and applied to generate distinct preference profiles. This method performs by reducing variation within clusters and increasing differences between them. Statistical tests were conducted to validate these clusters. For categorical variables like demographic data, we used chi-square tests. For continuous variables like age, we used ANOVA. The research objective was directly addressed by these validation tests, which successfully identified which demographic characteristics significantly differed across the four energy preference clusters.
+
+
+## Study design  
+Clearly describe your study design here, including treatment design (which factors and levels, the hierarchy among them, etc.), and your experimental design (number of reps/blocks, how was randomization performed, etc.), as we talked about in class.  
+
+This research employs a cross-sectional observational study to examine the socioeconomic and demographic factors influencing preferences for different energy sources in the UAE. The study uses survey methodology.
+
+Dependent variables: 
+This study examines preferences for six different energy sources:
+1. Nuclear energy
+2. Wind energy
+3. Solar energy
+4. Gas energy
+5. Oil energy
+6. Coal energy
+
+Each preference is measured as a binary outcome (1 prefer, 0 don't prefer)
+
+Independent variables:
+
+1. Socio-demographic factors:
+- Age 
+- Gender 
+- Education 
+- Marital Status 
+2. Employment 
+3. Income 
+4. Health Status 
+5. Nationality 
+6. Emirate Residence 
+7. Long-term residence 
+8. Religion 
+9. Utility bill payment 
+
+
+
+## Statistical analysis  
+Describe here your statistical analysis, including what type of ANOVA model you ran (based on the design above), what was your response variable, what were your explanatory variables and how were the explanatory variables treated (random or fixed). Provide your alpha level. Explain which function from which package you used to analyze this data. Explain how you checked linear model assumptions and whether or not they were met. Overall, make sure you explain in sufficient detail that, if given your data, a knowledgeable person would be able to reproduce your analysis exactly.  
+
+Employed a binary logistic regression model as my response variable were binary for each energy source. Six separate logistic regresssion models were estimated, one for each energy source: Nuclear, wind, solar, gas, oil and coal.
+
+Response variable:
+Binary preference for each energy source ( 1 prefer, 0 don't prefer)
+
+Explanatory variables:
+All explanatory variables were treated as fixed effects:
+
+1. Socio-demographic factors:
+- Age (continuous variable)
+- Gender (binary: 1 male; 0 female)
+- Education (categorical: University first degree, University higher degree)
+- Marital Status (categorical: single, married with no kids, married with kids, other (divorced, widow/ widower) )
+2. Employment (categorical: full-time, part-time, others (student, housewife, not-working))
+3. Income (categories: low income (upto 10K AED), middle income (10K -35K AED), high income (Above 35K AED))
+4. Health Status (categorical: poor health, moderate health, good health)
+5. Nationality (categorical: UAE national, Indian, Pakistani, Others)
+6. Emirate Residence (categorical: Dubai, Abu Dhabi, Sharjah, Others)
+7. Long-term residence (binary: 1 if living more than 10 years otherwise 0)
+8. Religion (categorical: Muslim, Christian, Others)
+9. Utility bill payment (electricity bill , gas bill, water bill) (binary: yes/no)
+10. Interaction term: Nationality x Employment status (Indian and Pakistani nationalities with part-time employment)
+
+The primary functions and packages used were:
+ **dplyr** and **tidyverse packages for data cleaning and preparation.
+ **glm()** function from the base R stats package for fitting the logistic regression models with binomial family and logit link.
+ **stargazer** package for creating formatted regression tables.
+ **margins** package for calculating average marginal effects.
+ **cluster**, **factoextra**, and **NbClust** packages for cluster analysis.
+ **ggplot2** and **reshape2** packages for data visualization.
+ **flextable**, **officer**, and **knitr** packages for creating formatted documents and tables
+ 
+ The significance levels were indicated as:
+ *p<0.1
+ **p<0.05
+ ***p<0.01
+ The alpha level for statistical significance was set at 0.05, with marginal significance at p<0.1.
+ 
+ Models were evaluated using AIC (Akaike Information Criterion), BIC(Bayesian Information Criterion), and Prediction accuracy.
+ 
+ 
+
+
+# Results  
+Here is where the coding is going to happen, and it will be completely up to you. Include under this section as many sub-sections (using ##) and as many chunks needed to create the analytical workflow for your analysis, starting at loading packages and data, wrangling, EDA, modeling, assumptions checking, ANOVA table, means, pairwise comparisons, and final publication-quality plot.  
+
+Make sure to run a model that reflects your study design. Even if your study design does not include one of the designs covered in class, you are still expected to run the most appropriate model. If you need help for references, let me know.  
+
+Before each chunk, describe the steps being performed in that chunk. For example, "Here I will load the data".  
+
+If a chunk produces output, like printing a data frame, statistical summary, a plot, ANOVA table, etc., make sure to write text interpreting what you see and how you can/will use that information to move forward to the next steps in the workflow.  
+
+```{r Load the packages and data}
+#| message: false
+#| warning: false
+
+library(dplyr)          
+library(tidyverse) 
+library(janitor)
+library(knitr)
+library(factoextra)
+library(cluster)
+library(ggplot2)
+library(corrplot)  
+library(broom)
+library(car) 
+library(officer) 
+library(flextable)
+library(stargazer)
+library(margins)
+
+
+data <- read_csv("../data/CN data.csv")
+
+```
+
+```{r}
+
+glimpse(data)
+
+
+```
+
+
+```{r Dataset cleaning and creating variables }
+
+data <- data %>%
+  filter(!is.na(age),
+         !is.na(male),
+         !is.na(educ4),
+         !is.na(educ5),
+         !is.na(Low_income),
+         !is.na(Middle_income),
+         !is.na(full_time),
+         !is.na(part_time),
+         !is.na(single),
+         !is.na(`_mar2`),
+         !is.na(`_mar3`),
+         !is.na(religion),
+         !is.na(b0_1),
+         !is.na(b0_2),
+         !is.na(b0_3),
+         !is.na(Poor_health),
+         !is.na(Moderate_health),
+         !is.na(Good_health),
+         !is.na(Short_term),
+         !is.na(Medium_term),
+         !is.na(Long_term)) %>%
+  mutate(
+    muslim = ifelse(religion == 1, 1, 0),
+    christian = ifelse(religion == 2, 1, 0),
+    indian_parttime = ifelse(indian_nat == 1 & part_time == 1, 1, 0),
+    pakistan_parttime = ifelse(pakistan == 1 & part_time == 1, 1, 0),
+    pays_electricity = ifelse(b0_1 == 1, 1, 0),
+    pays_water = ifelse(b0_2 == 1, 1, 0),
+    pays_gas = ifelse(b0_3 == 1, 1, 0),
+    long_term_resident = ifelse(q2 >= 6, 1, 0), # 1 if 10 or more than 10 years otherwise 0 
+  )
+```
+
+```{r dimensions of the dataset}
+dim(data)
+```
+
+```{r Descriptive statistics}
+
+summary_statistics <- function(data, var_name, label) {
+  
+  data[[var_name]] <- as.numeric(as.character(data[[var_name]]))
+  
+  if (all(is.na(data[[var_name]]))) {
+    return(data.frame(Variable = label, Obs = NA, Mean = NA, Std.Dev = NA, Min = NA, Max = NA))
+  }
+  
+  statistics <- data %>%
+    summarise(
+      Variable = label,
+      Obs = sum(!is.na(get(var_name))),
+      Mean = round(mean(get(var_name), na.rm = TRUE), 2),
+      `Std.Dev` = round(sd(get(var_name), na.rm = TRUE), 2),
+      Min = round(min(get(var_name), na.rm = TRUE), 2),
+      Max = round(max(get(var_name), na.rm = TRUE), 2)
+    )
+  
+  return(statistics)
+}
+
+# Create descriptive statistics table
+descriptive_statistics <- rbind(
+  # AGE
+  c("AGE", NA, NA, NA, NA, NA),
+  summary_statistics(data, "age", "Age (years)"),
+  
+  # GENDER
+  c("GENDER", NA, NA, NA, NA, NA),
+  summary_statistics(data, "male", "Male"),
+  
+  # Marital_status
+  c("MARITAL STATUS", NA, NA, NA, NA, NA),
+  summary_statistics(data, "single", "  Single-never married"),
+  summary_statistics(data, "_mar2", "  Married without kids"),
+  summary_statistics(data, "_mar3", "  Married with kids"),
+  summary_statistics(data, "_mar4", "  Divorced"),
+  summary_statistics(data, "_mar5", "  Widow/widower"),
+  
+  # EMPLOYMENT
+  c("EMPLOYMENT", NA, NA, NA, NA, NA),
+  summary_statistics(data, "full_time", "Full-time "),
+  summary_statistics(data, "part_time", "Part-time "),
+  summary_statistics(data, "student", "Student"),
+  summary_statistics(data, "housewife", "Housewife"),
+  summary_statistics(data, "not_working", "Not_working"),
+  
+  # INCOME GROUPS
+  c("INCOME GROUPS", NA, NA, NA, NA, NA),
+  summary_statistics(data, "Low_income", "Up to 10K AED"),
+  summary_statistics(data, "Middle_income", "10K-35K AED"),
+  summary_statistics(data, "High_income", "Above 35K AED"),
+  
+  # EDUCATION LEVEL
+  c("EDUCATION LEVEL", NA, NA, NA, NA, NA),
+  summary_statistics(data, "educ4", "University first degree"),
+  summary_statistics(data, "educ5", "University higher degree"),
+  
+  # EMIRATE OF RESIDENCE
+  c("EMIRATE OF RESIDENCE", NA, NA, NA, NA, NA),
+  summary_statistics(data, "emir1", "Dubai"),
+  summary_statistics(data, "emir2", "Abu Dhabi"),
+  summary_statistics(data, "emir3", "Sharjah"),
+  summary_statistics(data, "emir4", "Ras Al Khaima"),
+  summary_statistics(data, "emir5", "Ajman"),
+  summary_statistics(data, "emir6", "Fujairah"),
+  summary_statistics(data, "emir7", "Umm al-Quwain"),
+  
+  # RELIGION
+  c("RELIGION", NA, NA, NA, NA, NA),
+  summary_statistics(data, "muslim", "Muslim"),
+  summary_statistics(data, "christian", "Christian"),
+  summary_statistics(data, "hindu", "Hindu"),
+  
+  # NATIONALITY
+  c("NATIONALITY", NA, NA, NA, NA, NA),
+  summary_statistics(data, "indian_nat", "Indian"),
+  summary_statistics(data, "pakistan", "Pakistan"),
+  summary_statistics(data, "philippines", "Philippines"),
+  summary_statistics(data, "uae_nat", "UAE")
+) 
+
+descriptive_statistics <- as.data.frame(descriptive_statistics)
+names(descriptive_statistics) <- c("Variable name", "Obs.", "Mean", "Std. Dev.", "Min", "Max")
+
+descriptive_statistics
+
+```
+```{r Energy preferences summary}
+
+energy_preferences <- data.frame(
+  Energy_source = c("Solar Energy", "Oil Energy", "Gas Energy", 
+                    "Wind Energy", "Nuclear Energy", "Coal Energy"),
+  Preference_rate = c(mean(data$solar34, na.rm = TRUE) * 100,
+                 mean(data$oil34, na.rm = TRUE) * 100,
+                 mean(data$gas34, na.rm = TRUE) * 100,
+                 mean(data$wind34, na.rm = TRUE) * 100,
+                 mean(data$nuclear34, na.rm = TRUE) * 100,
+                 mean(data$coal34, na.rm = TRUE) * 100)
+)
+
+# Sort by preference
+energy_preferences <- energy_preferences %>%
+  arrange(desc(Preference_rate))
+
+energy_preferences
+
+```
+
+```{r Plot}
+
+ggplot(energy_preferences, aes(x = reorder(Energy_source, Preference_rate), y = Preference_rate)) +
+  geom_bar(stat = "identity", fill = "steelblue") +
+  geom_text(aes(label = paste0(round(Preference_rate, 1), "%")), vjust = -0.5, size = 3) +
+  labs(title = "Energy Preferences Among UAE Residents",
+       x = "Energy Source",
+       y = "Preference (%)") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+```
+
+```{r Rename the variable}
+data <- data %>%
+  mutate(
+    mar3 = `_mar3`
+  )
+
+
+```
+
+```{r Logit model}
+# To create logit models
+
+logit_model <- function(energy_type) {
+  glm(as.formula(paste(energy_type, "~ age + male + 
+                     educ4 + educ5 +
+                     Low_income + Middle_income +
+                     emir1 + emir2 + emir3 +
+                     uae_nat + indian_nat + pakistan +
+                     full_time + 
+                     single + mar3 +
+                     muslim + christian + 
+                     Moderate_health + Good_health +
+                     long_term_resident +
+                     indian_parttime + pakistan_parttime +
+                     pays_electricity + pays_gas"
+  )),
+  family = binomial(link = "logit"),
+  data = data)
+}
+
+```
+
+
+```{r}
+# Create models for each energy type
+energy_types <- c("nuclear34", "wind34", "solar34", "oil34", "gas34", "coal34")
+
+energy_types
+
+```
+
+```{r}
+# Create logit models
+logit_nuclear <- logit_model("nuclear34")
+logit_wind <- logit_model("wind34")
+logit_solar <- logit_model("solar34")
+logit_gas <- logit_model("gas34")
+logit_oil <- logit_model("oil34")
+logit_coal <- logit_model("coal34")
+```
+
+```{r}
+# To calculate model metrics
+calculate_metrics <- function(model, actual_values) {
+  predictions <- ifelse(predict(model, type = "response") > 0.5, 1, 0)
+  list(
+    accuracy = mean(predictions == actual_values),
+    aic = AIC(model),
+    bic = BIC(model)
+  )
+}
+
+```
+
+```{r}
+#Calculate metrics for logit models
+logit_metrics <- list(
+  nuclear = calculate_metrics(logit_nuclear, data$nuclear34),
+  wind = calculate_metrics(logit_wind, data$wind34),
+  solar = calculate_metrics(logit_solar, data$solar34),
+  gas = calculate_metrics(logit_gas, data$gas34),
+  oil = calculate_metrics(logit_oil, data$oil34),
+  coal = calculate_metrics(logit_coal, data$coal34)
+)
+
+```
+
+```{r}
+# Create model lists for stargazer
+logit_models <- list(logit_nuclear, logit_wind, logit_solar, 
+                     logit_gas, logit_oil, logit_coal)
+```
+
+
+```{r}
+#| message: false
+#| warning: false
+
+# Display the results
+stargazer(logit_models,
+          title = "Logit Energy Preference Models",
+          align = TRUE,
+          type = "text",
+          column.labels = c("Nuclear", "Wind", "Solar", "Gas", "Oil", "Coal"),
+          keep = c("age", "male", "educ4", "educ5", "Low_income", "Middle_income", 
+                   "emir1", "emir2", "emir3", "uae_nat", "indian_nat", "pakistan",
+                   "full_time", "single", "_mar3", "muslim", "christian",
+                   "Moderate_health", "Good_health","long_term_resident",
+                   "indian_parttime", "pakistan_parttime", 
+                   "pays_electricity", "pays_gas", "(Intercept)"),
+          covariate.labels = c("Age", "Male", 
+                               "University First Degree", "University Higher Degree",
+                               "Low Income", "Middle Income", 
+                               "Dubai", "Abu Dhabi", "Sharjah",
+                               "UAE National", "Indian", "Pakistani",
+                               "Full-time",
+                               "Single", "Married With Kids",
+                               "Muslim", "Christian", 
+                               "Moderate Health", "Good Health", "Long-term resident",
+                               "Indian × Part-time", "Pakistani × Part-time",
+                               "Pays Electricity Bill", "Pays Gas Bill",
+                               "Constant"),
+          dep.var.labels = "Energy Preference",
+          add.lines = list(
+            c("AIC", round(logit_metrics$nuclear$aic, 2),
+              round(logit_metrics$wind$aic, 2),
+              round(logit_metrics$solar$aic, 2),
+              round(logit_metrics$gas$aic, 2),
+              round(logit_metrics$oil$aic, 2),
+              round(logit_metrics$coal$aic, 2)
+              ),
+            c("BIC", round(logit_metrics$nuclear$bic, 2),
+              round(logit_metrics$wind$bic, 2),
+              round(logit_metrics$solar$bic, 2),
+              round(logit_metrics$gas$bic, 2),
+              round(logit_metrics$oil$bic, 2),
+              round(logit_metrics$coal$bic, 2)
+              ),
+            c("Prediction Accuracy", 
+              paste0(round(logit_metrics$nuclear$accuracy * 100, 2), "%"),
+              paste0(round(logit_metrics$wind$accuracy * 100, 2), "%"),
+              paste0(round(logit_metrics$solar$accuracy * 100, 2), "%"),
+              paste0(round(logit_metrics$gas$accuracy * 100, 2), "%"),
+              paste0(round(logit_metrics$oil$accuracy * 100, 2), "%"),
+              paste0(round(logit_metrics$coal$accuracy * 100, 2), "%")
+              )
+          ),
+          notes = c("*p<0.1; **p<0.05; ***p<0.01",
+                    "Reference categories: Poor Health",
+                    "Bill payment variables coded as 1=Yes, 0=No"),
+          notes.align = "r",
+          digits = 3) 
+
+```
+
+
+
+```{r}
+# To calculate marginal effects
+marginal_effects <- function(model) {
+  marg <- margins(model)
+  marg_summary <- summary(marg)
+  
+  marg_df <- data.frame(
+    factor = marg_summary$factor,
+    AME = marg_summary$AME,
+    SE = marg_summary$SE,
+    z = marg_summary$z,
+    p = marg_summary$p
+  )
+  
+  marg_df$significance <- ifelse(marg_df$p < 0.01, "***",
+                                 ifelse(marg_df$p < 0.05, "**",
+                                        ifelse(marg_df$p < 0.1, "*", "")))
+  return(marg_df)
+}
+
+```
+
+```{r}
+#Calculate margins for all models
+logit_margins <- list()
+logit_margins$nuclear <- marginal_effects(logit_nuclear)
+logit_margins$wind <- marginal_effects(logit_wind)
+logit_margins$solar <- marginal_effects(logit_solar)
+logit_margins$gas <- marginal_effects(logit_gas)
+logit_margins$oil <- marginal_effects(logit_oil)
+logit_margins$coal <- marginal_effects(logit_coal)
+```
+
+```{r}
+# Create margins table
+margins_table <- data.frame(
+  Variable = logit_margins$nuclear$factor,
+  Nuclear = paste0(sprintf("%.3f", logit_margins$nuclear$AME * 100), logit_margins$nuclear$significance),
+  Wind = paste0(sprintf("%.3f", logit_margins$wind$AME * 100), logit_margins$wind$significance),
+  Solar = paste0(sprintf("%.3f", logit_margins$solar$AME * 100), logit_margins$solar$significance),
+  Gas = paste0(sprintf("%.3f", logit_margins$gas$AME * 100), logit_margins$gas$significance),
+  Oil = paste0(sprintf("%.3f", logit_margins$oil$AME * 100), logit_margins$oil$significance),
+  Coal = paste0(sprintf("%.3f", logit_margins$coal$AME * 100), logit_margins$coal$significance)
+)
+```
+
+
+```{r}
+# Display the results
+stargazer(margins_table,
+          title = "Average Marginal Effects",
+          align = TRUE,
+          type = "text",
+          summary = FALSE,
+          notes = c("*** p<0.01, ** p<0.05, * p<0.1",
+                    "Effects shown as percentage point changes",
+                    "Binary variables show effect of change from 0 to 1"),
+          digits = 3)
+```
+# K-means Cluster Analysis
+
+```{r}
+cluster_data <- data %>%
+  select("nuclear34", "wind34", "solar34", "gas34", "oil34", "coal34")
+
+```
+
+```{r}
+scaled_data <- scale(cluster_data)
+```
+
+```{r Silhouette method}
+# Find optimal number of clusters
+set.seed(123)      # For reproducibility
+
+fviz_nbclust(scaled_data, 
+             method = "s", 
+             k.max = 10,
+             FUNcluster = kmeans)
+```
+
+```{r}
+fviz_nbclust(scaled_data, 
+             method = "wss", 
+             k.max = 10,
+             FUNcluster = kmeans)
+```
+Based on the plots, lets say k = 4 is optimal
+
+```{r}
+set.seed(123)
+km <- kmeans(scaled_data,
+                  centers = 4,
+                  nstart = 25
+                  )
+
+km
+```
+```{r}
+# Add cluster column to original data
+data$energy_cluster <- km$cluster
+```
+
+```{r}
+# Create cluster profiles
+cluster_profiles <- data %>%
+  filter(!is.na(energy_cluster)) %>%
+  group_by(energy_cluster) %>%
+  summarize(
+    Count = n(),
+    Percentage = n()/sum(!is.na(data$energy_cluster))*100,
+    Nuclear = mean(nuclear34, na.rm = TRUE),
+    Wind = mean(wind34, na.rm = TRUE),
+    Solar = mean(solar34, na.rm = TRUE),
+    Gas = mean(gas34, na.rm = TRUE),
+    Oil = mean(oil34, na.rm = TRUE),
+    Coal = mean(coal34, na.rm = TRUE)
+  )
+
+print(cluster_profiles)
+
+
+```
+
+```{r}
+cluster_profile_long <- cluster_profiles %>%
+  select(-Count, -Percentage) %>%
+  pivot_longer(cols = c(Nuclear, Wind, Solar, Gas, Oil, Coal),
+               names_to = "Energy_Type", 
+               values_to = "Preference")
+```
+
+```{r cluster plot}
+ggplot(cluster_profile_long, aes(x = Energy_Type, y = Preference, 
+                                 group = energy_cluster, color = factor(energy_cluster))) +
+  geom_line() +
+  geom_point() +
+  labs(title = "Energy Preference Patterns by Cluster",
+       x = "Energy Source",
+       y = "Preference Level",
+       color = "Cluster") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+```
+
+# Analyzing Demographic characteristics of clusters
+
+```{r}
+demographic_profiles <- data %>%
+  filter(!is.na(energy_cluster)) %>%
+  group_by(energy_cluster) %>%
+  summarize(
+    Cluster_Size = n(),
+    Cluster_Percentage = round(n()/sum(!is.na(data$energy_cluster))*100, 1),
+    Age = mean(age, na.rm = TRUE),
+    Male = mean(male == 1, na.rm = TRUE) * 100,
+    University_First_Degree = mean(educ4 == 1, na.rm = TRUE) * 100,
+    University_Higher_Degree = mean(educ5 == 1, na.rm = TRUE) * 100,
+    Higher_Education = mean((educ4 == 1 | educ5 == 1), na.rm = TRUE) * 100,
+    High_Income = mean(High_income == 1, na.rm = TRUE) * 100,
+    UAE_National = mean(uae_nat == 1, na.rm = TRUE) * 100,
+    Full_Time = mean(full_time == 1, na.rm = TRUE) * 100,
+    Muslim = mean(muslim == 1, na.rm = TRUE) * 100,
+    Christian = mean(christian == 1, na.rm = TRUE) * 100,
+    Single = mean(single == 1, na.rm = TRUE) * 100,
+    Married_With_Kids = mean(`_mar3` == 1, na.rm = TRUE) * 100,
+    Long_Term_Resident = mean(Long_term == 1, na.rm = TRUE) * 100,
+  )
+
+print(demographic_profiles)
+
+```
+
+# Statistical validation of demographic differences between clusters
+
+
+```{r}
+# Chi-square tests for categorical variables
+
+chi_square_results <- data.frame(Variable = character(),
+                                 Chi_Square = numeric(),
+                                 P_Value = numeric(),
+                                 Df = numeric(),
+                                 stringsAsFactors = FALSE)
+```
+
+```{r}
+categorical_vars <- c("male", "educ4", "educ5", "single","_mar3",
+                      "Low_income", "Middle_income", 
+                      "High_income", "uae_nat", "indian_nat", "pakistan", 
+                      "full_time", "muslim", "christian", "Long_term")
+
+for (var in categorical_vars) {
+  cont_table <- table(data$energy_cluster, data[[var]])
+  chi_result <- chisq.test(cont_table)
+  chi_square_results <- rbind(chi_square_results,
+                              data.frame(Variable = var,
+                                         Chi_Square = chi_result$statistic,
+                                         P_Value = chi_result$p.value,
+                                         Df = chi_result$parameter,
+                                         stringsAsFactors = FALSE))
+}
+
+print(chi_square_results)
+
+```
+
+```{r}
+# Significance 
+chi_square_results <- chi_square_results %>%
+  filter(P_Value < 0.05) %>% 
+  arrange(P_Value)
+
+chi_square_table <- kable(chi_square_results,
+                              caption = "Significant Demographic Differences Between Clusters (Categorical Variables)",
+                              col.names = c("Variable", "Chi-Square", "P-Value", "Df"),
+                              digits = c(0, 2, 4, 0))
+
+print(chi_square_table)
+```
+
+
+```{r}
+# ANOVA for continuous variables
+
+anova_results <- aov(age ~ energy_cluster, data = data)
+
+print(anova_results)
+
+```
+
+```{r}
+
+anova_summary <- summary(anova_results)
+
+```
+```{r}
+demographic_profiles %>%
+  select(energy_cluster, Male, University_Higher_Degree, UAE_National, Full_Time) %>%
+  pivot_longer(cols = -energy_cluster, names_to = "Demographic", values_to = "Percentage") %>%
+  ggplot(aes(x = Demographic, y = Percentage, fill = factor(energy_cluster))) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "Key Demographic Differences Between Clusters",
+       x = "Demographic Characteristic",
+       y = "Percentage (%)",
+       fill = "Cluster") +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(face = "bold"),
+    axis.title = element_text(face = "bold"),
+    axis.text.x = element_text(angle = 45, hjust = 1)
+  )
+```
+
+
+
+# Team work in GitHub  
+Whether you are working with your future-self or as duos, make sure to stage, commit, and push after finishing each of the sub-sections above. When committing, write commit messages that are short and descriptive (e.g., finished wrangling).  
+
+If you are working in duos, make sure to split the workload. I will check your collaborative work through the commit history, and if one student has contributed significantly more than the other, than that will impact grades.  
+
+**Tip 1**: to avoid merge conflicts, make sure to **pull** first, and then start working locally. That will ensure that any changes made by your partner will be "downloaded" before you make changes to the files locally.  
+
+**Tip 2**: make use of the Issues on this repository to set up to-do lists and assign tasks to different people. You can also use each issue/task to discuss how things should be run and get to an agreement.  
+
+# Submitting your work  
+Once you have developed all the code and answers, make sure to Render this quarto file.  
+
+**Notes on rendering**:  
+
+- Make sure to render your work and inspect how the final html look like.  
+- If it does not look professional for whatever reason, then fix the issue, re-render it, recheck.  
+- Only send me your work once your html file looks professional.  
+- Some potential issues you may encounter and how to fix them:   
+  - Some times your code may be creating a table output that is waaay to long and cumbersome to scroll through when rendered. If this is the case, make it more professional looking by using the `head()` function to only print the first handful of rows (instead of thousands of rows).  
+  
+  - **DO NOT** delete the file's heading levels (# and ##). They set up the proper heading 1 and 2 levels, and I use them to guide my grading.  
+  
+  - If a given chunk is also outputting warnings or messages, inhibit this behavior by changing the chunk options `message` and `warning` to `FALSE`.  
+  
+  - If, after rendered, 2 lines of text are connected and you wish to "break line" between them, add 2 extra spaces after the first one.  
+
+After rendering, an .html file will be created on your `code` folder.  
+
+Rename this file to `LASTNAME1-LASTNAME2_finalproject.html`.    
+For ex., `Bastos-Mendes_finalproject.html`.
+
+Submit the html file on eLC by **April 30th** 11:59 pm.    
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
