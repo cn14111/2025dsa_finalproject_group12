@@ -28,23 +28,33 @@ To get you setup, you will need to:
 # Introduction  
 Describe here the introduction of your problem. Consider this as a shortened version of your paper, where you will briefly discuss in 3-4 paragraphs what is the issue/gap in literature, and how the data you collected will help answer this gap.  
 
-The energy transition from fossil fuels to renewable sources represents one of the most critical challenges facing countries worldwide, not only on due to technological and economic factors but
-also on because of social acceptance and public preferences for various energy sources. Understanding the impact of socio-economic features and demographic factors on individuals energy preferences provides critical insights for developing effective, targeted energy policies.
+The energy transition from fossil fuels to renewable sources represents one of the most critical challenges facing countries worldwide, not only due to technological and economic factors but also because of social acceptance and public preferences for various energy sources. Understanding the impact of socio-economic features and demographic factors on individuals energy preferences provides critical insights for developing effective, targeted energy policies.Despite comprehensive study on energy preferences in Western contexts, a substantial gap exists in understanding how these preferences develop in countries with diverse expatriate populations, especially in high-income Gulf states where most of residents are expatriates rather than citizens.
 
-The study conducts an analysis of public preferences for different energy sources applying the data from 1,962 respondents participating in an online survey in the UAE. The UAE has been a major destination for job-seeking immigrants(expatriates/non-nationals) and is one of the top countries in terms of the share of immigrants in the country's total population, with a migrant share of 88.5% (Ratha et al., 2016). The total population is about 10.5 million in the UAE.The expatriates live for a varying length of time in the country and seldom obtain a citizenship.
+The study conducts an analysis of public preferences for different energy sources applying the data from 1,962 respondents participating in an online survey in the UAE. The UAE has been a major destination for job-seeking immigrants (expatriates/non-nationals) and is one of the top countries in terms of the share of immigrants in the country's total population, with a migrant share of 88.5% (Ratha et al., 2016). The total population is about 10.5 million in the UAE.The expatriates live for a varying length of time in the country and seldom obtain a citizenship, creating a unique demographic landscape where energy preferences are shaped by diverse countries of origin, temporary residency and the distinct position of being majority non-citizens.
 
-The study focuses exclusively on how socioeconomic and demographic factors influence preferences for six energy sources (nuclear, wind, solar, oil, gas, and coal energy), with particular emphasis on creating socio-demographic profiles that explain energy preferences patterns. In addition to the standard survey questions about socioeconomic characteristics, the questionnaire also probed respondents' knowledge, values, attitudes, concern, and behavior regarding energy and environmental issues associated with the non-renewable energy source utilization. A set of explanatory variables were identified at the research design stage that correlate with preferences for a specific energy source.
-
+The study focuses exclusively on how socioeconomic and demographic factors influence preferences for six energy sources (nuclear, wind, solar, oil, gas, and coal energy), with particular emphasis on creating socio-demographic profiles that explain energy preferences patterns. In addition to the standard survey questions about socioeconomic characteristics, the questionnaire also probed respondents' knowledge, values, attitudes, concern, and behavior regarding energy and environmental issues associated with the non-renewable energy source utilization. A set of explanatory variables were identified at the research design stage that correlate with preferences for a specific energy source. This study employs logistic regression modeling to identify specific factors influencing energy preferences and cluster analysis to find distinct preference patterns among UAE residents, contributing to a deeper understanding of how nationality, residency status, and other socio-demographic factors shape energy preferences.
+These findings provide valuable insights for policymakers aiming to develop more effective and inclusive energy transition strategies in multinational contexts.
 
 
 # Hypothesis and objectives  
-Describe here your hypothesis, followed by your objectives. Make sure your hypothesis are testable and bold, and objectives are clear.  
+Describe here your hypothesis, followed by your objectives. Make sure your hypothesis are testable and bold, and objectives are clear.
 
-The objective of the study is to answer the following question:
+Hypothesis:
 
-What can be said about the preferences for different energy sources among UAE residents? What is the association between socioeconomic and demographic factors and preferences for different energy sources (nuclear, wind, solar, oil, gas, and coal) among citizens and non-
-citizen residents of the UAE?
+H1: Higher education levels are positively associated with preferences for renewable energy sources (solar and wind) and nuclear energy among UAE residents. We hypothesize that university degree individuals will show significantly stronger preference for solar, wind, and nuclear energy compared to individuals with less education.
 
+H2: Nationality and residency status significantly influence energy preferences. We hypothesize that UAE nationals will show significantly different energy preferences compared to expatriate residents, with stronger preference for oil and gas energy.
+
+H3: Male respondents show stronger preference for nuclear energy compared to female respondents.
+
+H4: Income level is a significant variable of energy preferences. We hypothesize that middle-income group will show stronger preferences for various energy sources including renewable energy sources, while lower-income group will show stronger preference for conventional energy sources like oil and coal.
+
+H5: Health status correlates with energy preferences. We hypothesize that respondents reporting moderate and good health will demonstrate stronger preferences for all energy sources except coal.
+
+H6: Distinct socio-demographic clusters exist among UAE residents that explain patterns of energy preferences across various energy sources. We hypothesize that these clusters will show significantly different demographic profiles and energy preference patterns.
+
+Objective:
+The main objective of the study is to determine how socioeconomic and demographic factors influence preferences for six energy sources (nuclear, wind, solar, oil, gas and coal) among UAE residents.I aim to identify the significant socioeconomic and demographic determinants of energy preferences and develop comprehensive socio-demographic profiles that explain energy preference patterns. Through my analysis, I will quantify the marginal effects of socioeconomic and demographic factors on the probability of preferring each energy source and study the differences between citizens and non-citizen residents of the UAE.
 
 
 
@@ -53,9 +63,11 @@ Describe here your overall material and methods as it pertains to the analysis y
 
 This study employs a questionnaire-based survey as the data collection technique, gathered data from 1961 respondents residing in the UAE between June and July 2015 using a market research company(YouGov), which hires panel members and receives surveys (Contu, D., Mourato, S., & Kaya, O. (2020). The data includes information on socio-economic characteristics and attitudes, including views on different energy sources, perceived risks and benefits of nuclear energy, choice experiments focusing on nuclear energy, life satisfaction, climate change attitudes, utility bills, and length of stay. The survey was developed using Gryphon, a survey programming tool used by YouGov, and designed in English or Arabic so that respondents may complete the survey based on their preferences (Contu, D., Mourato, S., & Kaya, O. (2020). The main goal of the survey is to think carefully about energy and climate change issues. 
 
+
+
 Methodology:
 
-Binary logistic regression models were employed to analyze the relationship between socio-demographic characteristics and preferences for various energy sources in the UAE.  Each model has a binary preference for an energy source as its dependent variable, namely nuclear, solar, wind, fossil fuel, oil, and gas. 
+1. Binary logistic regression models were employed to analyze the relationship between socio-demographic characteristics and preferences for various energy sources in the UAE.  Each model has a binary preference for an energy source as its dependent variable, namely nuclear, solar, wind, fossil fuel, oil, and gas. 
 
 P(y = 1|x) = G(β₀ + β₁x₁ + ... + βₖxₖ) = G(β₀ + xβ)   or log(p/(1-p)) = β₀ + β₁X₁ + β₂X₂ + ... + βₙXₙ + ε
 
@@ -63,7 +75,9 @@ Where G is the logistic function
 
 G(z) = exp(z)/[1 + exp(z)]
 
-logit[P(Nuclear = 1)] = β₀ + β₁Age + β₂Male + β₃University first degree + β₄University higher degree + β₅Low Income + β₆Middle Income + β₇Dubai + β₈Abu Dhabi + β₉Sharjah + β₁₀UAE National + β₁₁Indian + β₁₂Pakistani +  β₁3 Full-time + β₁4Single + β₁5 Married with kids + β₁6Muslim+ β₁7Christian + β₁8Moderate Health + β₁9Good Health + β20Long-term resident +β21Indian x part-time + β22Pakistani x part-time + β23Pays Electricity bill + β24Pays Gas bill + ε
+The model specification:
+
+logit[P(Energy source = 1)] = β₀ + β₁Age + β₂Male + β₃University first degree + β₄University higher degree + β₅Low Income + β₆Middle Income + β₇Dubai + β₈Abu Dhabi + β₉Sharjah + β₁₀UAE National + β₁₁Indian + β₁₂Pakistani + β₁₃Full-time + β₁₄Single + β₁₅Married with kids + β₁₆Muslim + β₁₇Christian + β₁₈Moderate Health + β₁₉Good Health + β₂₀Long-term resident + β₂₁Indian × part-time + β₂₂Pakistani × part-time + β₂₃Pays Electricity bill + β₂₄Pays Gas bill + ε
 
 To determine how employment level influences energy preferences differently for Indian and Pakistani respondents compared to other nationalities, I included an interaction term in the logistic regression model. Logit coefficients cannot be directly interpreted like in linear models, only indicating the direction of the effect. I calculated the AME
 
@@ -77,8 +91,7 @@ n⁻¹∑ᵢ₌₁ⁿ g(β₀ + xᵢβ)βⱼ gives the average effect on probabi
 
 The model fit was evaluated using the Akaike Information Criterion (AIC) and Bayesian Information Criterion (BIC). And prediction accuracy metrics facilitate the comparison of model performance across different energy sources.
 
-To achieve the goal of developing demographic profiles for energy preference patterns, a cluster analysis was used alongside binary logistic regression models. Logistic regression determines the impact of individual demographic characteristics on preferences for certain energy sources, whereas cluster analysis reveals distinct preference patterns across all energy sources simultaneously.
-
+2. To achieve the goal of developing demographic profiles for energy preference patterns, a cluster analysis was used alongside binary logistic regression models. Logistic regression determines the impact of individual demographic characteristics on preferences for certain energy sources, whereas cluster analysis reveals distinct preference patterns across all energy sources simultaneously.
 
 For the clustering analysis, energy preference variables like nuclear, wind, solar, gas, oil, and coal were first normalized using z-scores. Thereafter, the silhouette statistical method was used to determine the optimal number of clusters. K-means algorithm with k=4 clusters was chosen and applied to generate distinct preference profiles. This method performs by reducing variation within clusters and increasing differences between them. Statistical tests were conducted to validate these clusters. For categorical variables like demographic data, we used chi-square tests. For continuous variables like age, we used ANOVA. The research objective was directly addressed by these validation tests, which successfully identified which demographic characteristics significantly differed across the four energy preference clusters.
 
@@ -86,7 +99,7 @@ For the clustering analysis, energy preference variables like nuclear, wind, sol
 ## Study design  
 Clearly describe your study design here, including treatment design (which factors and levels, the hierarchy among them, etc.), and your experimental design (number of reps/blocks, how was randomization performed, etc.), as we talked about in class.  
 
-This research employs a cross-sectional observational study to examine the socioeconomic and demographic factors influencing preferences for different energy sources in the UAE. The study uses survey methodology.
+This study employs a cross-sectional observational study to examine the socioeconomic and demographic factors influencing preferences for different energy sources in the UAE. 
 
 Dependent variables: 
 This study examines preferences for six different energy sources:
@@ -101,26 +114,32 @@ Each preference is measured as a binary outcome (1 prefer, 0 don't prefer)
 
 Independent variables:
 
-1. Socio-demographic factors:
-- Age 
-- Gender 
-- Education 
-- Marital Status 
-2. Employment 
-3. Income 
-4. Health Status 
-5. Nationality 
-6. Emirate Residence 
-7. Long-term residence 
-8. Religion 
-9. Utility bill payment 
+1. Age (continuous variable)
+2. Gender (binary: 1 male; 0 female)
+3. Education (categorical: University first degree, University higher degree)
+4. Marital Status (categorical: single, married with no kids, married with kids, other (divorced, widow/ widower) )
+5. Employment (categorical: full-time, part-time, others (student, housewife, not-working))
+6. Income (categories: low income (upto 10K AED), middle income (10K -35K AED), high income (Above 35K AED))
+7. Health Status (categorical: poor health, moderate health, good health)
+8. Nationality (categorical: UAE national, Indian, Pakistani, Others)
+9. Emirate Residence (categorical: Dubai, Abu Dhabi, Sharjah, Others)
+10. Long-term residence (binary: 1 if living more than 10 years otherwise 0)
+11. Religion (categorical: Muslim, Christian, Others)
+12. Utility bill payment (electricity bill , gas bill, water bill) (binary: yes/no)
 
+The study uses survey methodology with data collected from 1,961 respondents residing in the UAE between June and July 2015 using a market research company(YouGov), which hires panel members and receives surveys (Contu, D., Mourato, S., & Kaya, O. (2020). The sampling designed to capture diverse respondents across different emirates including both citizens and non-citizens residents. 
+
+The survey was developed using Gryphon, a survey programming tool used by YouGov, and designed in English or Arabic so that respondents may complete the survey based on their preferences. Respondents completed the survey online through YouGov's platform. The survey included questions about energy preferences, socio-demographic characteristics, attitudes toward energy and environmental issues.
 
 
 ## Statistical analysis  
 Describe here your statistical analysis, including what type of ANOVA model you ran (based on the design above), what was your response variable, what were your explanatory variables and how were the explanatory variables treated (random or fixed). Provide your alpha level. Explain which function from which package you used to analyze this data. Explain how you checked linear model assumptions and whether or not they were met. Overall, make sure you explain in sufficient detail that, if given your data, a knowledgeable person would be able to reproduce your analysis exactly.  
 
-Employed a binary logistic regression model as my response variable were binary for each energy source. Six separate logistic regresssion models were estimated, one for each energy source: Nuclear, wind, solar, gas, oil and coal.
+Employed a binary logistic regression model as my response variables were binary for each energy source (1 = prefer, 0 = don't prefer). Six separate logistic regression models were estimated, one for each energy source: Nuclear, wind, solar, gas, oil and coal.
+
+Model Specification:
+
+logit[P(Energy source = 1)] = β₀ + β₁Age + β₂Male + β₃University first degree + β₄University higher degree + β₅Low Income + β₆Middle Income + β₇Dubai + β₈Abu Dhabi + β₉Sharjah + β₁₀UAE National + β₁₁Indian + β₁₂Pakistani + β₁₃Full-time + β₁₄Single + β₁₅Married with kids + β₁₆Muslim + β₁₇Christian + β₁₈Moderate Health + β₁₉Good Health + β₂₀Long-term resident + β₂₁Indian × part-time + β₂₂Pakistani × part-time + β₂₃Pays Electricity bill + β₂₄Pays Gas bill + ε
 
 Response variable:
 Binary preference for each energy source ( 1 prefer, 0 don't prefer)
@@ -128,38 +147,69 @@ Binary preference for each energy source ( 1 prefer, 0 don't prefer)
 Explanatory variables:
 All explanatory variables were treated as fixed effects:
 
-1. Socio-demographic factors:
-- Age (continuous variable)
-- Gender (binary: 1 male; 0 female)
-- Education (categorical: University first degree, University higher degree)
-- Marital Status (categorical: single, married with no kids, married with kids, other (divorced, widow/ widower) )
-2. Employment (categorical: full-time, part-time, others (student, housewife, not-working))
-3. Income (categories: low income (upto 10K AED), middle income (10K -35K AED), high income (Above 35K AED))
-4. Health Status (categorical: poor health, moderate health, good health)
-5. Nationality (categorical: UAE national, Indian, Pakistani, Others)
-6. Emirate Residence (categorical: Dubai, Abu Dhabi, Sharjah, Others)
-7. Long-term residence (binary: 1 if living more than 10 years otherwise 0)
-8. Religion (categorical: Muslim, Christian, Others)
-9. Utility bill payment (electricity bill , gas bill, water bill) (binary: yes/no)
-10. Interaction term: Nationality x Employment status (Indian and Pakistani nationalities with part-time employment)
+1. Age (continuous variable)
+2. Gender (binary: 1 male; 0 female)
+3. Education (categorical: University first degree, University higher degree)
+4. Marital Status (categorical: single, married with no kids, married with kids, other (divorced, widow/ widower) )
+5. Employment (categorical: full-time, part-time, others (student, housewife, not-working))
+6. Income (categories: low income (upto 10K AED), middle income (10K -35K AED), high income (Above 35K AED))
+7. Health Status (categorical: poor health, moderate health, good health)
+8. Nationality (categorical: UAE national, Indian, Pakistani, Others)
+9. Emirate Residence (categorical: Dubai, Abu Dhabi, Sharjah, Others)
+10. Long-term residence (binary: 1 if living more than 10 years otherwise 0)
+11. Religion (categorical: Muslim, Christian, Others)
+12. Utility bill payment (electricity bill , gas bill, water bill) (binary: yes/no)
+13. Interaction term: Nationality x Employment status (Indian and Pakistani nationalities with part-time employment)
+
+Software and Packages:
+
+All analysis were conducted using R version 4.4.2.
 
 The primary functions and packages used were:
+
  **dplyr** and **tidyverse packages for data cleaning and preparation.
  **glm()** function from the base R stats package for fitting the logistic regression models with binomial family and logit link.
  **stargazer** package for creating formatted regression tables.
  **margins** package for calculating average marginal effects.
  **cluster**, **factoextra**, and **NbClust** packages for cluster analysis.
  **ggplot2** and **reshape2** packages for data visualization.
- **flextable**, **officer**, and **knitr** packages for creating formatted documents and tables
+ **flextable**, **officer**, and **knitr** packages for creating formatted documents and tables.
+ 
+ Statistical significance and model evaluation:
+ 
+ The alpha level for statistical significance was set at 0.05, with marginal significance at p<0.1.
  
  The significance levels were indicated as:
  *p<0.1
  **p<0.05
  ***p<0.01
- The alpha level for statistical significance was set at 0.05, with marginal significance at p<0.1.
  
- Models were evaluated using AIC (Akaike Information Criterion), BIC(Bayesian Information Criterion), and Prediction accuracy.
+Models were evaluated using AIC (Akaike Information Criterion), BIC(Bayesian Information Criterion), and Prediction accuracy (percentage of correctly classified).
  
+Data Processing:
+
+Before analysis, the dataset was cleaned by removing observations with missing values for the variables included in the model. Categorical variables were converted to dummy variables, with reference categories as noted above.
+
+Model Assumptions:
+
+For logistic regression models, I checked:
+1. Independence of observations: This assumption is likely met as respondents completed the questionnaire independently in survey design.This was verified through study design.
+2. Absence of multicollinearity: Using variance inflation factors (VIF) with the car package, ensuring all values were below 5, which indicate acceptable levels of correlation between predictor.
+3. Linearity in the logit: For continuous variables (like age), the logit of the outcome should be linearly related to the predictor.This was checked using the Box-Tidwell approach.
+4. Absence of influential outliers: Extreme values can disproportionately affect model estimates. This was checked using Cook's distance and leverage metrics.
+
+All assumptions were adequately met for the logistic regression analysis.
+
+Average Marginal Effects:
+I calculated average marginal effects (AMEs) using the margins package. These represent the average change in probability of preferring each energy source for a one-unit change in the explanatory variable, holding other variables constant.
+
+Cluster Analysis:
+For the cluster analysis, first I standardized the energy preference variables using z-scores. Then determined the optimal number of clusters using the silhouette method from the factoextra package. Based on this analysis, a k-means clustering algorithm with k = 4 was implemented using the kmeans() function from the stats package.The algorithm was run with 25 different random starting points (nstart = 25) to ensure stable cluster solutions.  
+
+After clustering, I validated the demographic differences between clusters. Chi-square tests were used to identify associations between cluster membership and categorical demographic variables, while ANOVA used for continuous variables like age.Statistical validation in theses validation tests indicated which demographic characteristics significantly differed across the energy preference clusters.
+
+
+
  
 
 
@@ -172,6 +222,8 @@ Before each chunk, describe the steps being performed in that chunk. For example
 
 If a chunk produces output, like printing a data frame, statistical summary, a plot, ANOVA table, etc., make sure to write text interpreting what you see and how you can/will use that information to move forward to the next steps in the workflow.  
 
+
+Here I will load all necessary packages for the analysis and import the dataset.
 ```{r Load the packages and data}
 #| message: false
 #| warning: false
@@ -196,16 +248,8 @@ data <- read_csv("../data/CN data.csv")
 
 ```
 
+Here I will clean the dataset by removing observations with missing values and create new variables needed for the analysis.
 ```{r}
-
-glimpse(data)
-
-
-```
-
-
-```{r Dataset cleaning and creating variables }
-
 data <- data %>%
   filter(!is.na(age),
          !is.na(male),
@@ -240,10 +284,19 @@ data <- data %>%
   )
 ```
 
-```{r dimensions of the dataset}
-dim(data)
+Here, I will rename the variable
+```{r}
+data <- data %>% 
+  mutate (mar3 = `_mar3`)
+
 ```
 
+Here, I will check the dimensions of the dataset
+```{r}
+dim(data)
+```
+# Descriptive Statistics
+Here, I will calculate the descriptive statistics of the variables
 ```{r Descriptive statistics}
 
 summary_statistics <- function(data, var_name, label) {
@@ -334,6 +387,9 @@ names(descriptive_statistics) <- c("Variable name", "Obs.", "Mean", "Std. Dev.",
 descriptive_statistics
 
 ```
+# Energy Preference
+
+Here I will calculate the energy preference rates among UAE residents.
 ```{r Energy preferences summary}
 
 energy_preferences <- data.frame(
@@ -355,11 +411,12 @@ energy_preferences
 
 ```
 
+Here I will create a bar chart to visualize the energy preferences
 ```{r Plot}
 
 ggplot(energy_preferences, aes(x = reorder(Energy_source, Preference_rate), y = Preference_rate)) +
   geom_bar(stat = "identity", fill = "steelblue") +
-  geom_text(aes(label = paste0(round(Preference_rate, 1), "%")), vjust = -0.5, size = 3) +
+  geom_text(aes(label = paste0(round(Preference_rate, 1), "%")), vjust = -0.15, size = 3) +
   labs(title = "Energy Preferences Among UAE Residents",
        x = "Energy Source",
        y = "Preference (%)") +
@@ -368,15 +425,12 @@ ggplot(energy_preferences, aes(x = reorder(Energy_source, Preference_rate), y = 
 
 ```
 
-```{r Rename the variable}
-data <- data %>%
-  mutate(
-    mar3 = `_mar3`
-  )
+This plot shows overall energy preferences among UAE residents. Solar energy is most preferred (73.2%), followed by oil (68.1%), gas (66.2%), wind (63.1%), nuclear (51.1%), and coal (43.1%). This indicates a strong preference for renewable energy, particularly solar, while maintaining support for traditional fossil fuels like oil and gas.
 
 
-```
+# Logit Regression Model
 
+Here I will create a function to build logistic regression models for each energy type
 ```{r Logit model}
 # To create logit models
 
@@ -400,17 +454,15 @@ logit_model <- function(energy_type) {
 
 ```
 
-
+Here I will create models for each energy type.
 ```{r}
-# Create models for each energy type
 energy_types <- c("nuclear34", "wind34", "solar34", "oil34", "gas34", "coal34")
 
 energy_types
 
 ```
-
+Here I will apply the model function to create logistic regression models for each energy type
 ```{r}
-# Create logit models
 logit_nuclear <- logit_model("nuclear34")
 logit_wind <- logit_model("wind34")
 logit_solar <- logit_model("solar34")
@@ -419,8 +471,8 @@ logit_oil <- logit_model("oil34")
 logit_coal <- logit_model("coal34")
 ```
 
+Here I will create a function to calculate prediction accuracy, AIC, and BIC for each logistic regression model 
 ```{r}
-# To calculate model metrics
 calculate_metrics <- function(model, actual_values) {
   predictions <- ifelse(predict(model, type = "response") > 0.5, 1, 0)
   list(
@@ -432,6 +484,7 @@ calculate_metrics <- function(model, actual_values) {
 
 ```
 
+Here I will apply the metrics function to each of the energy preference models to evaluate their performance 
 ```{r}
 #Calculate metrics for logit models
 logit_metrics <- list(
@@ -445,13 +498,14 @@ logit_metrics <- list(
 
 ```
 
+Here I will organize all models into a list to enable summarizing them in a comparison table
 ```{r}
 # Create model lists for stargazer
 logit_models <- list(logit_nuclear, logit_wind, logit_solar, 
                      logit_gas, logit_oil, logit_coal)
 ```
 
-
+Here I will generate a formatted table showing the results of all six logistic regression models
 ```{r}
 #| message: false
 #| warning: false
@@ -512,11 +566,208 @@ stargazer(logit_models,
           digits = 3) 
 
 ```
+# Preference for nuclear energy:
+Results indicate that nuclear energy preferences were significantly influenced by several explanatory variables. Among the socio-demographic variables, age positively influences preferences for nuclear energy (p<0.05), suggesting that older respondents are more likely to prefer nuclear energy. Regarding gender, males have a higher likelihood to prefer nuclear energy in relation to females (p<0.01). Educational attainment level also significantly and positively influences preferences for nuclear energy as respondents with a university first degree (p<0.01) or higher degree (p<0.01) are more likely to choose nuclear energy than respondents with less education.
+
+In terms of the respondent income, those falling into the middle-income category show a greater preference for nuclear energy compared to high-income respondents (base category) (p<0.01). Among the indicators of nationality and the residents in one of the UAE districts, UAE nationals, and Abu Dhabi residents exhibit a higher preference for nuclear energy (p<0.1 each) than non-citizens or residents of the country’s other districts. The self-reported health status differently affects preferences for nuclear energy. Specifically, respondents who report having moderate or good health are more likely to prefer nuclear energy (p<0.1 each) than the respondents viewing their health as poor (base category). Finally, respondents who indicated that they pay electricity bills are more likely to prefer nuclear energy (p<0.05), which suggests that an understanding of energy costs may influence attitudes towards a specific energy source.
+
+# Preference for wind energy:
+Results indicate that several explanatory variables greatly influenced wind energy preferences. 
+The regression results reveal that preference for wind energy is significantly correlated with several demographic variables. Among the socio-demographic variables, age positively influences preferences for wind energy (p<0.05). Regarding gender, males are more likely than females to prefer wind energy (p<0.01).  Education attainment level also significantly and positively influences preferences for wind energy as respondents with a university first degree (p<0.05) or higher degree (p<0.01) are more likely to choose wind energy than respondents with less education. 
+
+Among the indicators of the residents in one of the UAE districts, Dubai and Sharjah residents exhibit a higher preference for wind energy (p<0.1 each). Regarding marital status, single respondents show a stronger preference for wind energy compared to others (married) (p<0.05). The self-reported health status differently affects preferences for wind energy. Specifically, respondents who report having moderate health (p<0.05) or good health (p<0.01) were more likely to prefer wind energy than respondents viewing their health as poor (base category). The interaction term of nationality with employment status shows that Pakistani part-time workers exhibit a significantly lower preference for wind energy (p<0.1). Finally, respondents who indicated that they pay electricity bills are more likely to prefer wind energy (p<0.05), which suggests that an understanding of energy costs may influence attitudes towards a specific energy source.
+
+# Preference for solar energy: 
+Results indicated that solar energy preferences were significantly influenced by several explanatory variables. Among the socio-demographic variables, age positively influences preferences for solar energy (p<0.05). Regarding gender, males have a higher likelihood to prefer solar energy in relation to females (p<0.01). Educational attainment level significantly and positively influences energy preferences, as respondents with a university first degree (p<0.01) or higher degrees (p<0.1) are more likely to choose solar energy than respondents with less education. 
+
+In terms of the respondent income, those falling into the middle-income category show a greater preference for solar energy (p<0.01) compared to high-income respondents (base category). Among the indicators of nationality, UAE nationals exhibit a significantly lower preference for solar energy (p<0.05) than non-citizens. Regarding religious affiliation, Muslims show a significantly lower preference for solar energy (p<0.05), compared to other religious groups. Specifically, respondents who report having moderate health (p<0.05) or good health (p<0.01) are more likely to prefer solar energy compared to those with poor health. Finally, respondents who indicated that they pay electricity bills show a significantly greater preference for solar energy (p<0.01), showing the strongest coefficient among all bill-payment effects across energy types.
+ 
+# Preference for gas energy: 
+Results indicate gas energy preferences were significantly influenced by several explanatory variables Among the socio-demographic variables, age positively influences preferences for gas energy (p<0.05).  Regarding gender, males have a higher likelihood to prefer gas energy compared to females (p<0.01). Educational attainment level also significantly and positively influences preferences for gas energy as respondents with a university first degree (p<0.05) or higher degrees (p<0.1) are more likely to choose gas energy.  
+
+Regarding religious affiliation, Christians show a significantly higher preference for gas energy (p<0.05), compared to other religious groups. Respondents who report having moderate health (p<0.05) or good health (p<0.01) are more likely to prefer solar energy compared to those with poor health. Finally, respondents who pay electricity bills show a greater preference for gas energy (p<0.01).
+
+# Preference for oil energy: 
+
+Results indicate oil energy preferences were significantly influenced by several explanatory variables. Among the socio-demographic variables, age positively influences preferences for oil energy (p<0.05). Unlike other energy sources, gender is not statistically significant for oil preference. 
+
+In terms of respondent income, those falling into the middle-income (p<0.1) and low-income (p<0.01) categories show a greater preference for oil energy compared to high-income respondents. Given unmarried people showing more preference (p<0.05). Regarding religious affiliation, Christians show a significantly higher preference for oil energy (p<0.05), compared to other religious groups. Specifically, respondents who report having moderate health (p<0.05) or good health (p<0.01) are more likely to prefer oil energy than the respondents viewing their health as poor. The interaction term of nationality with employment status shows that Pakistani part-time workers (p<0.05) and Indian part-time workers (p<0.1) exhibit a significantly lower preference. Finally, respondents who indicated that they pay gas bills are more likely to prefer oil energy (p<0.05), which suggests more general conventional energy preferences.
+
+# Preference for coal energy: 
+Results indicate coal energy preferences were significantly influenced by several explanatory variables. Among the socio-demographic variables, age negatively influences preferences for coal energy (p<0.1), suggesting that younger individuals may exhibit a stronger preference for coal than for alternative energy sources. Educational attainment level also significantly and positively influences preferences for coal energy as respondents with a university first degree (p<0.05) are more likely to choose coal energy than respondents with less education. 
+
+In terms of respondent income, those falling into the middle-income (p<0.01) and low-income (p<0.05) categories show a greater preference for coal energy compared to high-income respondents. Among the indicators of nationality, UAE nationals (p<0.1) and Pakistanis (p<0.05) exhibit a higher preference (p<0.1) than other nationals. Regarding religious affiliation, Christians show a significantly higher preference for coal energy (p<0.1), compared to other religious groups. The interaction term of nationality with employment status shows that Pakistani part-time workers (p<0.05) exhibit a significantly lower preference. In contrast to other energy sources, health status and bill payment do not serve as statistically significant variables of coal preference. 
 
 
+
+# Testing Model Assumptions:
+
+1. Multicollinearity:
+
+Here I will create a function to check for multicollinearity in the logistic regression models using the Variance Inflation Factor (VIF).
+```{r}
+vif_ <- function(model) {
+  vif_results <- car::vif(model)
+  print(paste("VIF Results for", deparse(substitute(model))))
+  print(vif_results)
+  cat("Maximum VIF:", max(vif_results), "\n")
+  cat("Variables with VIF > 5:", names(vif_results[vif_results > 5]), "\n\n")
+}
+```
+
+Here I will check for multicollinearity in all energy models
+```{r}
+vif_(logit_nuclear)
+vif_(logit_wind)
+vif_(logit_solar)
+vif_(logit_gas)
+vif_(logit_oil)
+vif_(logit_coal)
+
+```
+
+We can see multicollinearity issues in the health status variables suggesting these variables are correlated with each other or with other predictors in model. 
+
+Pattern across models:
+
+Nuclear model: Moderate_health (6.16) and Good_health (6.17) exceed the threshold
+Wind model: Moderate_health (5.64) and Good_health (5.65) exceed the threshold
+Solar model: All variables have VIF < 5, so no multicollinearity issues
+Gas model: Moderate_health (5.55) and Good_health (5.55) exceed the threshold
+Oil model: Moderate_health (5.42) and Good_health (5.43) exceed the threshold
+Coal model: Moderate_health (6.41) and Good_health (6.42) exceed the threshold
+
+For solar energy model, the multicollinearity assumption is fully satisfied. For the other models, there is a moderate multicollinearity in the health variables.
+
+Since the VIF values are only slightly above 5, this may not impact results.
+
+2. Linearity in the logit:
+
+Here I will create a function to check whether continuous variable (age) has a linear relationship with the log odds of the outcome by testing if an interaction between age and log(age) is significant
 
 ```{r}
-# To calculate marginal effects
+library(broom)
+
+linearity_logit <- function(energy_type) {
+  # Create model with interaction between age and log(age)
+  linearity <- as.formula(paste(energy_type, "~ age + I(age*log(age)) + male + 
+                     educ4 + educ5 +
+                     Low_income + Middle_income +
+                     emir1 + emir2 + emir3 +
+                     uae_nat + indian_nat + pakistan +
+                     full_time + 
+                     single + mar3 +
+                     muslim + christian + 
+                     Moderate_health + Good_health +
+                     long_term_resident +
+                     indian_parttime + pakistan_parttime +
+                     pays_electricity + pays_gas"))
+  
+linearity_model <- glm(linearity,
+                         family = binomial(link = "logit"),
+                         data = data)
+  
+model_tidy <- tidy(linearity_model)
+interaction_term <- model_tidy[model_tidy$term == "I(age * log(age))",]
+  
+print(paste("Linearity check for", energy_type))
+print(interaction_term)
+  
+  if (interaction_term$p.value < 0.05) {
+    cat("The linearity assumption is violated (p < 0.05)\n\n")
+  } else {
+    cat("The linearity assumption is not violated (p >= 0.05)\n\n")
+  }
+}
+
+# Apply to each energy type
+for (energy_type in energy_types) {
+  linearity_logit(energy_type)
+}
+```
+
+The linearity assumption is satisfied for all models. The linearity assumption examined whether continuous variable (age) has a linear relationship with the log odds of energy preferences.
+
+Here, all p-values for the interaction term between age and log(age) were greater than 0.05.
+
+As p>0.05, indicating that adding the non-linear term doesn't significantly improve the model, which shows linear assumption is appropriate.
+
+3. Influential Observations
+
+Here I will create a function to identify influential observations that might disproportionately affect model estimates using Cook's distance
+```{r}
+library(ggplot2)
+
+influential_obs <- function(model, model_name) {
+  # Calculate Cook's distance
+  cooksd <- cooks.distance(model)
+  
+  # Create dataframe for plotting
+  plot_data <- data.frame(
+    obs = 1:length(cooksd),
+    cooksd = cooksd
+  )
+  
+  # Threshold for influential points
+  threshold <- 4/nrow(model.frame(model))
+  
+  # Identify influential observations
+  influential <- which(cooksd > threshold)
+  
+  # Create plot
+  influence_plot <- ggplot(plot_data, aes(x = obs, y = cooksd)) +
+    geom_point(alpha = 0.5) +
+    geom_hline(yintercept = threshold, linetype = "dashed", color = "red") +
+    labs(title = paste("Cook's Distance for", model_name, "Energy Model"),
+         x = "Number of Observations",
+         y = "Cook's Distance") +
+    theme_minimal()
+  
+  # Print summary
+  cat("Influential observations check for", model_name, "model\n")
+  cat("Threshold value:", threshold, "\n")
+  cat("Number of influential observations:", length(influential), "\n")
+  if (length(influential) > 0) {
+    cat("First few influential observations:", head(influential), "\n\n")
+  } else {
+    cat("No influential observations found.\n\n")
+  }
+  
+  # Return plot
+  return(influence_plot)
+}
+```
+
+Here I will apply the function to each energy model  to identify observations taht might have a disproportionate influence on the model's estimates.
+```{r}
+nuclear <- influential_obs(logit_nuclear, "Nuclear")
+wind <- influential_obs(logit_wind, "Wind")
+solar <- influential_obs(logit_solar, "Solar")
+gas <- influential_obs(logit_gas, "Gas")
+oil <- influential_obs(logit_oil, "Oil")
+coal <- influential_obs(logit_coal, "Coal")
+```
+
+Here I will present the Cook's distance plot for the each energy model to examine the pattern of influential observations
+```{r}
+nuclear
+wind
+solar
+gas
+oil
+coal
+```
+
+After checking the assumption of influential observations, the cook's distance analysis shows that all six energy preference models have some influential observations. 
+
+Cook's distance measures how much the regression coefficients would change if a particular observation were removed. Here 0.002 is threshold line, points above that line are considered influential.
+
+By seeing the plots, the solar energy model has the most influential observations while the coal energy model has the fewest. Each model has a relatively small number of influential points compared to total sample size of 1,961 observations. This suggests that models are generally stable, but a small percentage of observations (less than 4% in all) have a disproportionate influence on the model estimates.
+
+# Marginal Effects
+
+Here I will create a function that computes average marginal effects for logistic regression models.
+```{r}
 marginal_effects <- function(model) {
   marg <- margins(model)
   marg_summary <- summary(marg)
@@ -537,6 +788,7 @@ marginal_effects <- function(model) {
 
 ```
 
+Here I will apply the marginal effects function to each energy model to understand how each independent variable affects the probability of preferring energy type
 ```{r}
 #Calculate margins for all models
 logit_margins <- list()
@@ -548,6 +800,7 @@ logit_margins$oil <- marginal_effects(logit_oil)
 logit_margins$coal <- marginal_effects(logit_coal)
 ```
 
+Here I will organize the marginal effects from all six models into a well-structured data frame for comparison across energy types. Then will convert values to percentage and add significance.
 ```{r}
 # Create margins table
 margins_table <- data.frame(
@@ -561,7 +814,7 @@ margins_table <- data.frame(
 )
 ```
 
-
+Here I will generate a formatted table showing the results of average marginal effects for all energy types. 
 ```{r}
 # Display the results
 stargazer(margins_table,
@@ -574,18 +827,40 @@ stargazer(margins_table,
                     "Binary variables show effect of change from 0 to 1"),
           digits = 3)
 ```
+Among the socio-demographic variables, age positively influences the preference for all energy sources except coal. Every additional year increases the probability of preferring nuclear, wind, solar, gas, and oil energy by approximately 0.3 percentage points (p<0.05), while decreasing the preference for coal by 0.269 percentage points (P<0.1), indicating older residents tend to favor conventional and renewable energy sources but relatively less supportive of coal.
+Regarding gender, males are more likely to prefer nuclear energy (17.459 percentage points )than females (p<0.01). Males show significantly higher preferences for wind (8.826 percentage points), gas (8.027 percentage points), and solar energy (6.970 percentage points) (p<0.01 for each).
+
+Educational attainment level significantly and positively influences energy preferences for various energy types in comparison to respondents with less education. For nuclear energy, respondents with a university first degree (p<0.01) or higher degree (p<0.01) increase the preference probability by 9.320 and 9.919 percentage points. For wind energy, respondents with a university first-degree (p<0.05) or higher degree (p<0.01) increase the preference probability by 6.402 and 8.626 percentage points. For solar energy, university first-degree holders show a 6.182 percentage point higher preference (p<0.01), while respondents with higher degree show an increase of 5.838 percentage point (p<0.1). For gas energy, university first-degree respondents show a 6.174 percentage point higher preference (p<0.05), while respondents with higher degree show a 5.476 percentage point increase (P<0.1). For coal energy, university first-degree holders show a significant positive effect (5.760 percentage points, p<0.05), while university higher-degree holders show no significant preference.
+
+Regarding marital status, single respondents show significantly higher preferences for wind energy (6.941 percentage points, p<0.05) and oil energy (7.687 percentage points, p<0.05) compared to others (married with no kids).
+
+In terms of respondent income, those falling into the middle-income category show significantly greater preference for nuclear (11.210 percentage points, p<0.01), solar (7.932 percentage points, p<0.01), oil (5.441 percentage points, p<0.1), and coal energy (8.858 percentage points, p<0.01) compared to high-income respondents (base category). Also, low-income respondents show significantly higher preferences for oil (8.171 percentage points, p<0.01) and coal energy (8.133 percentage points, p<0.01) compared to high-income respondents.
+
+Among the indicators of nationality, UAE nationals exhibit significantly higher preference for nuclear (9.175 percentage points, p<0.1) and coal energy (8.264 percentage points, p<0.1) but significantly lower preference for solar energy (-10.047 percentage points, p<0.05) compared to non-citizens. Among the residents in one of the UAE districts, Abu Dhabi (emir2) exhibits 8.401 percentage points higher preference for nuclear energy (P<0.1), while Dubai (emir1) and Sharjah (emir3) show stronger preference for wind energy (7.240 and 7.824 percentage points, p<0.1 each) compared to residents of the country’s other districts. The interaction term of nationality with employment status shows that Pakistani part-time workers exhibit a significantly lower preference for oil (-25.308 percentage points, p<0.05), coal (-28.357 percentage points, p<0.05), and wind energy (-19.437 percentage points, p<0.1), while Indian part-time workers show significantly lower preference for oil energy (-12.554 percentage points, p<0.1)
+
+Regarding religious affiliation, Christians show a significantly higher preference for gas (8.584 percentage points, p<0.05), oil (8.316 percentage points, p<0.05), and coal energy (6.643 percentage points, p<0.1) compared to other religious groups. Muslims show a significantly lower preference for solar energy (-6.154 percentage points, p<0.05). 
+
+The self-reported health status exhibits significantly positive effects across most energy sources. Respondents with good health are more likely to prefer gas (20.154 percentage points, p<0.01), wind (15.905 percentage points, p<0.01), and solar energy (13.828 percentage points, p<0.01) compared to respondents with poor health. Specifically, respondents who report having moderate health exhibit higher preference for nuclear (11.044 percentage points, p<0.1), wind (14.194 percentage points, p<0.05), solar (11.400 percentage points, p<0.05), gas (14.099 percentage points, p<0.05), and oil energy (10.839 percentage points, p<0.05) compared to those respondents viewing their health as poor.
+
+Finally, respondents who indicated that they pay electricity bills exhibit significantly higher preference for solar (11.997 percentage points, p<0.01), gas (7.332 percentage points, p<0.05), wind (6.439 percentage points, p<0.05), and nuclear energy (6.230 percentage points, p<0.05). Respondents who pay gas bill show a significant preference for oil energy (5.676 percentage points, p<0.05)
+
+
+
+
 # K-means Cluster Analysis
 
+Here I will prepare the data for cluster analysis by selecting and scaling the energy preference variables.
 ```{r}
 cluster_data <- data %>%
   select("nuclear34", "wind34", "solar34", "gas34", "oil34", "coal34")
 
-```
-
-```{r}
+# Scaling the data
 scaled_data <- scale(cluster_data)
+
+
 ```
 
+Here I will use the silhouette method to determine the optimal number of clusters
 ```{r Silhouette method}
 # Find optimal number of clusters
 set.seed(123)      # For reproducibility
@@ -595,15 +870,20 @@ fviz_nbclust(scaled_data,
              k.max = 10,
              FUNcluster = kmeans)
 ```
+This plot shows the average silhouette width, which measures how well each object fits within its cluster.
 
+Here I will use the elbow method to determine the optimal number of clusters
 ```{r}
 fviz_nbclust(scaled_data, 
              method = "wss", 
              k.max = 10,
              FUNcluster = kmeans)
 ```
+The plot shows that as the number of clusters increases, the total within sum of squares decreases, meaning data points within each cluster become more similar
+
 Based on the plots, lets say k = 4 is optimal
 
+Here I will perform k-means clustering with k = 4 clusters based on the optimal number determined in the previous step
 ```{r}
 set.seed(123)
 km <- kmeans(scaled_data,
@@ -613,13 +893,15 @@ km <- kmeans(scaled_data,
 
 km
 ```
+Here I will add cluster column to original data
 ```{r}
-# Add cluster column to original data
 data$energy_cluster <- km$cluster
 ```
 
+# Cluster Profiles
+
+Here I will create profiles of each cluster by calculating average preference for each energy type within clusters.
 ```{r}
-# Create cluster profiles
 cluster_profiles <- data %>%
   filter(!is.na(energy_cluster)) %>%
   group_by(energy_cluster) %>%
@@ -639,6 +921,7 @@ print(cluster_profiles)
 
 ```
 
+Here I will reshape the cluster profiles data into long format suitable for creating a line plot showing energy preference patterns across clusters.
 ```{r}
 cluster_profile_long <- cluster_profiles %>%
   select(-Count, -Percentage) %>%
@@ -647,6 +930,7 @@ cluster_profile_long <- cluster_profiles %>%
                values_to = "Preference")
 ```
 
+Here I will create a line plot that visualizes how different clusters vary in their preferences for each energy type
 ```{r cluster plot}
 ggplot(cluster_profile_long, aes(x = Energy_Type, y = Preference, 
                                  group = energy_cluster, color = factor(energy_cluster))) +
@@ -661,8 +945,18 @@ ggplot(cluster_profile_long, aes(x = Energy_Type, y = Preference,
 
 ```
 
-# Analyzing Demographic characteristics of clusters
+Cluster 1 (Conventional Energy Supporters with Solar): This group shows a strong preference for conventional energy sources, particularly oil, high acceptance of gas and solar, moderate acceptance of nuclear and wind, and complete rejection of coal. This preference pattern indicates a willingness to integrate solar energy with conventional fossil fuels.
 
+Cluster 2 (Renewable Energy Supporters): This is the most distinct cluster that strongly favors renewable energy sources, with a high preference for solar and wind and moderate support for nuclear energy. This group completely rejects oil, which indicates a clear preference for non-fossil energy sources.
+
+Cluster 3 (Energy Development Supporters): This is the largest segment with the strongest support for all energy sources, suggesting a pragmatic view toward energy diversification rather than prioritizing specific energy sources.
+
+Cluster 4 (Energy Diversification Skeptics): This group shows consistently low preferences for all energy sources, indicating potential skepticism or indifference in energy development in general.
+
+
+# Demographic Profiles of clusters
+
+Here I will analyze the demographic characteristics of each cluster to understand who belongs to each group.
 ```{r}
 demographic_profiles <- data %>%
   filter(!is.na(energy_cluster)) %>%
@@ -689,9 +983,62 @@ print(demographic_profiles)
 
 ```
 
-# Statistical validation of demographic differences between clusters
+Cluster 1 shows the highest mean age (35.2 years) of all clusters. In addition, this category has the lowest UAE nationality (6.8%) but the highest full-time employment (72.5%), indicating significant expatriate participation. High employment rates and a preference for oil and gas suggest that many in this category have professional ties to these conventional energy sectors. Comparatively low long-term resident rates (39.8%) imply that even non-residents of the UAE value its conventional energy sectors.
+
+Cluster 2 shows the highest percentage of males and, most importantly the highest level of higher education and highest percentage of high-income individuals, indicating that higher education correlates with stronger preference.
+
+Cluster 3 shows moderate levels of education and employment.
+
+Cluster 4 shows lowest percentage of males, lowest education levels and the lowest full-time employment. However, it has the highest percentage of UAE nationals and long-term residents.
 
 
+
+Here I will create a bar chart to visualize key demographic differences between clusters
+```{r}
+
+demographic_profiles %>%
+  select(energy_cluster, Male, University_Higher_Degree, UAE_National, Full_Time) %>%
+  pivot_longer(cols = -energy_cluster, names_to = "Demographic", values_to = "Percentage") %>%
+  mutate(Demographic = case_when(
+    Demographic == "Male" ~ "Male",
+    Demographic == "University_Higher_Degree" ~ "Higher Degree",
+    Demographic == "UAE_National" ~ "UAE National",
+    Demographic == "Full_Time" ~ "Full-Time Employment",
+    TRUE ~ Demographic
+  )) %>%
+  mutate(Demographic = factor(Demographic, 
+                             levels = c("Full-Time Employment", "Male", "UAE National", "Higher Degree"))) %>%
+  ggplot(aes(x = Demographic, y = Percentage, fill = factor(energy_cluster))) +
+  geom_bar(stat = "identity", position = "dodge", width = 0.7) +
+  geom_text(aes(label = paste0(round(Percentage), "%")), 
+            position = position_dodge(width = 0.9),
+            vjust = -0.15, size = 3) +
+  scale_fill_brewer(palette = "Set1", name = "Cluster") +
+  labs(title = "Key Demographic Differences Between Clusters",
+       x = "",
+       y = "Percentage (%)",
+       fill = "Cluster") +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(face = "bold", size = 14, hjust = 0.5),
+    axis.title.y = element_text(face = "bold", size = 12),
+    axis.text = element_text(size = 10),
+    legend.position = "right",
+    legend.title = element_text(face = "bold"),
+    panel.grid.major.x = element_blank(),
+    panel.border = element_rect(color = "gray", fill = NA, linewidth = 0.5)
+  )
+```
+
+Clusters 1 and 2 have the highest rates of full-time employment (73% and 71-72%). Clusters 1 and 2 also have more males (67% and 72%). UAE nationals make up a small percentage across all clusters (7-13%), with Cluster 4 having the highest percentage. People with higher degrees range from 16-22% across clusters, with Cluster 1 having the most educated people.
+ 
+
+
+## Statistical validation of demographic differences
+
+# Chi-square tests
+
+Here I will use chi-square tests to determine if demographic differences between clusters are statistically significant.
 ```{r}
 # Chi-square tests for categorical variables
 
@@ -702,74 +1049,91 @@ chi_square_results <- data.frame(Variable = character(),
                                  stringsAsFactors = FALSE)
 ```
 
+Here I will define the categorical variables to test.
 ```{r}
-categorical_vars <- c("male", "educ4", "educ5", "single","_mar3",
+categorical_variables <- c("male", "educ4", "educ5", "single","_mar3",
                       "Low_income", "Middle_income", 
                       "High_income", "uae_nat", "indian_nat", "pakistan", 
                       "full_time", "muslim", "christian", "Long_term")
+```
 
-for (var in categorical_vars) {
+Here I will run chi-square tests for each demographic variable to statistically evaluate whether the clusters differ significantly in terms of demographic composition
+```{r}
+variables <- c()
+for (var in categorical_variables) {
+  if (!var %in% variables) {
   cont_table <- table(data$energy_cluster, data[[var]])
   chi_result <- chisq.test(cont_table)
+  
+  chi <- data.frame(
+      Variable = var,
+      Chi_Square = as.numeric(chi_result$statistic),
+      P_Value = chi_result$p.value,
+      Df = chi_result$parameter,
+      stringsAsFactors = FALSE
+    )
+  
   chi_square_results <- rbind(chi_square_results,
-                              data.frame(Variable = var,
-                                         Chi_Square = chi_result$statistic,
-                                         P_Value = chi_result$p.value,
-                                         Df = chi_result$parameter,
-                                         stringsAsFactors = FALSE))
+                              chi)
+  variables <- c(variables, var)
+                                         
+ }
 }
-
-print(chi_square_results)
-
 ```
 
+Here I will filter the chi-square test results to focus only on the statistically significant variables and arrange them by significance level
 ```{r}
-# Significance 
-chi_square_results <- chi_square_results %>%
+stat_results <- chi_square_results %>%
   filter(P_Value < 0.05) %>% 
-  arrange(P_Value)
-
-chi_square_table <- kable(chi_square_results,
-                              caption = "Significant Demographic Differences Between Clusters (Categorical Variables)",
-                              col.names = c("Variable", "Chi-Square", "P-Value", "Df"),
-                              digits = c(0, 2, 4, 0))
-
-print(chi_square_table)
+  arrange(P_Value) %>% 
+  distinct(Variable, .keep_all = TRUE)
 ```
 
+Here I will format chi-square results with significance indicators
+```{r}
+stat_results$Chi_Square_format <- paste0(
+  round(stat_results$Chi_Square, 2),
+  ifelse(stat_results$P_Value < 0.01, "***",
+         ifelse(stat_results$P_Value < 0.05, "**", "*"))
+)
+```
 
+Here I will generate a formatted table showing which demographic variables have statistically significant differences across the energy preference clusters.
+```{r}
+kable(stat_results[, c("Variable", "Chi_Square_format", "P_Value", "Df")],
+      caption = "Significant Demographic Differences Between Clusters (Categorical Variables)",
+      col.names = c("Variable", "Chi-Square", "P-Value", "Df"),
+      align = c("l", "c", "c", "c"),
+      digits = c(0, 0, 4, 0))
+
+```
+
+Based on the results, several demographic variables differ significantly across the energy preference clusters. Male shows a strong relationship with cluster membership (χ² = 21.82, p< 0.001). 
+Education level influences energy preferences, with both university first degree (educ4) (χ² = 12.45, p<0.01) and university higher degree (educ5) (χ² = 7.87, p<0.05) showing significant differences.
+
+Employment status is important, as full time employment is significantly associated with cluster membership (χ² = 14.11, p < 0.01)
+Income level is also important, with middle_income showing significant differences across clusters (χ² = 21.62, p<0.001)
+
+Among the indicators of nationality, UAE National significantly related to cluster membership (χ² = 10.66, p < 0.05). Religion also influences energy preferences, both Christian (χ² = 17.31, p < 0.01) and Muslim (χ² = 8.68, p < 0.05) affiliations showing significant differences.
+
+# ANOVA test for continuous variable
+
+Here I will perform an ANOVA test to determine if there are significant age differences between clusters
 ```{r}
 # ANOVA for continuous variables
 
 anova_results <- aov(age ~ energy_cluster, data = data)
 
-print(anova_results)
+anova_results
 
 ```
-
+Here I will display and interpret the ANOVA test results.
 ```{r}
 
-anova_summary <- summary(anova_results)
+summary(anova_results)
 
 ```
-```{r}
-demographic_profiles %>%
-  select(energy_cluster, Male, University_Higher_Degree, UAE_National, Full_Time) %>%
-  pivot_longer(cols = -energy_cluster, names_to = "Demographic", values_to = "Percentage") %>%
-  ggplot(aes(x = Demographic, y = Percentage, fill = factor(energy_cluster))) +
-  geom_bar(stat = "identity", position = "dodge") +
-  labs(title = "Key Demographic Differences Between Clusters",
-       x = "Demographic Characteristic",
-       y = "Percentage (%)",
-       fill = "Cluster") +
-  theme_minimal() +
-  theme(
-    plot.title = element_text(face = "bold"),
-    axis.title = element_text(face = "bold"),
-    axis.text.x = element_text(angle = 45, hjust = 1)
-  )
-```
-
+It shows a highly significant relationship between age and cluster membership.As p-value is extremely small (0.000644), it indicates there is a strong evidence that mean age differs significantly between at least some of the energy preference clusters. This suggests that age is an important demographic factor in determining energy preferences among UAE residents. 
 
 
 # Team work in GitHub  
